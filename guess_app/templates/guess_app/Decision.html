@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Decision
+{% endblock %}
+
+{% block content %}
+    <div>
+        <ul>
+            <li> You have an endowment of {{Constants.endowment}} points. </li>
+            <li> The computer generates a number between {{Constants.minguess}} and {{Constants.maxguess}}. </li>
+            <li> You have to guess this number. </li>
+            <li> The closer is your guess the more you earn. </li>
+        </ul>
+    </div>
+    <div>
+        What is your guess {{player.guess}}
+    </div>
+    {% formfield player.guess %}
+
+
+    {% next_button %}
+
+{% endblock %}
