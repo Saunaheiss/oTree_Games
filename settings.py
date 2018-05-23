@@ -24,6 +24,12 @@ SESSION_CONFIGS = [
         'num_demo_participants': 1,
         'app_sequence': ['guess_app'],
     },
+{
+        'name': 'dictator_game',
+        'display_name': "Dictator game",
+        'num_demo_participants': 2, #number of partcipants who participate in the specific day (time)
+        'app_sequence': ['dictator_game'],
+    },
 ]
 
 
@@ -32,8 +38,8 @@ SESSION_CONFIGS = [
 LANGUAGE_CODE = 'en'
 
 # e.g. EUR, GBP, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'USD'
-USE_POINTS = True
+REAL_WORLD_CURRENCY_CODE = 'CHF' #The money which is shown
+USE_POINTS = False #does not use virtual currency, instead uses real money
 
 ROOMS = []
 

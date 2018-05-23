@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Page title
+{% endblock %}
+
+{% block content %}
+     <div>
+            <ul>
+                <li> You and the other player have an endowment of {{Constants.endowment}} points. </li>
+                <li> You decide how the endowment is splited.  </li>
+                <li> You can send between {{Constants.minsend}} and {{Constants.maxsend}}. </li>
+                <li> The game is anonymous and the other won't have any chance to interact with you.</li>
+                <li>{% formfield group.dictator_decision %}</li>
+        </div>
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Results
+{% endblock %}
+
+{% block content %}
+<div>
+    <ul>
+        <li>Dictator's decision: {{group.dictator_decision}}</li>
+        <li>Total was to share{{Constants.endowment}}</li>
+        <li>Dictator: {{dictator_payoff}}</li>
+        <li>Receiver: {{receiver_payoff}}</li>
+    </ul>
+</div>
+<div class="alert alert-primary" role="alert">
+    You are {{player.role}} and got {{player.payoff}}
+</div>
+<div class="alert alert-primary" role="alert">
+    Dictator: {{dictator_payoff}}
+</div>
+<div class="alert alert-danger" role="alert">
+    Receiver: {{receiver_payoff}}
+</div>
+
+<div>Philipp's solution</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Text</th>
+        <th scope="col">Money</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Your role was:</td>
+        <td>{{player.role}}</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>{% if player.role == 'dictator' %}
+            Your
+            {% else %}
+            Dictator's
+            {% endif %}
+            initial endowment was:
+        </td>
+        <td>{{Constants.endowment}}</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td>{% if player.role == 'dictator' %}
+            You decided to send to a Receiver:
+            {%else%}
+            Dictator send you:
+            {% endif %}
+        </td>
+        <td>{{group.dictator_decision}}</td>
+    </tr>
+    <tr class="alert alert-primary" role="alert">
+        <th scope
+        "row">4</th>
+        <td>Your payoff was:</td>
+        <td>{{player.payoff}}</td>
+    </tr>
+    </tbody>
+</table>
+
+{% next_button %}
+{% endblock %}
+
+
