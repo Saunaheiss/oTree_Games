@@ -10,6 +10,10 @@ class Decision(Page):
     def is_displayed(self):
         return self.player.role() == 'dictator'
 
+    def vars_for_template(self):
+        receiver = self.group.get_player_by_role('receiver')
+        gender = receiver.gender
+        return {'gender':gender, 'gender2':receiver.get_gender_display()}
 
 class ResultsWaitPage(WaitPage):
     body_text = "Please wait for Marco. He is slow. Hard decisions to make"
@@ -27,11 +31,13 @@ class Results(Page):
         }
 
 class Intro(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['gender']
 
 
 page_sequence = [
     Intro,
+    WaitPage, #here we don't need to do anything. Just wait
     Decision,
     ResultsWaitPage,
     Results

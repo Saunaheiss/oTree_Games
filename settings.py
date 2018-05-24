@@ -29,6 +29,20 @@ SESSION_CONFIGS = [
         'display_name': "Dictator game",
         'num_demo_participants': 2, #number of partcipants who participate in the specific day (time)
         'app_sequence': ['dictator_game'],
+        'treatment_gender':False,
+    },
+{
+        'name': 'dictator_game_withGender',
+        'display_name': "Dictator game with gender",
+        'num_demo_participants': 2, #number of partcipants who participate in the specific day (time)
+        'app_sequence': ['dictator_game'],
+        'treatment_gender':True,
+    },
+{
+        'name': 'Ultimatum_game',
+        'display_name': "Ultimatum Game",
+        'num_demo_participants': 2, #number of partcipants who participate in the specific day (time)
+        'app_sequence': ['ultimatum_game'],
     },
 ]
 

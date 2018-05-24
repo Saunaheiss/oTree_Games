@@ -2,17 +2,29 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+    Dictator it is time to decide
 {% endblock %}
 
 {% block content %}
-     <div>
+    {% if session.config.treatment_gender %}
+    <div>hallo treatment gender is true</div>
+    {% endif %}
+    <div>
             <ul>
                 <li> You and the other player have an endowment of {{Constants.endowment}} points. </li>
                 <li> You decide how the endowment is splited.  </li>
                 <li> You can send between {{Constants.minsend}} and {{Constants.maxsend}}. </li>
                 <li> The game is anonymous and the other won't have any chance to interact with you.</li>
                 <li>{% formfield group.dictator_decision %}</li>
+                <li>The gender of the receiver is: {%if gender == 0 %}
+                        female
+                        {%elif gender == 1%}
+                        male
+                        {%else%}
+                        just awesome
+                        {%endif%}
+                </li>
+                <li>This is with gender 2 solution. here we use receiver.get_gender_display() {{gender2}}</li>
         </div>
     {% next_button %}
 

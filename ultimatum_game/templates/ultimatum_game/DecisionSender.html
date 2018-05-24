@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Decision Sender
+{% endblock %}
+
+{% block content %}
+    <div>You can send from {{Constants.minsend}} till {{Constants.maxsend}}</div>
+    <div>You need now to decide how much money you want to give from your  {{Constants.endowment}} to the other participant. The other participant decides, if he wants to accept the money or not. If he does not accept, you also don't receive any money.</div>
+    <div>
+        <li>{% formfield group.sender_decision %}</li>
+    </div>
+
+{% next_button %}
+
+{% endblock %}

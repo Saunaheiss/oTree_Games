@@ -3,6 +3,7 @@ from otree.api import (
     Currency as c, currency_range
 )
 
+
 author = 'Tobias T.'
 
 doc = """
@@ -11,11 +12,11 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'dictator_game'
-    players_per_group = 2  # two players
+    name_in_url = 'ultimatum_game'
+    players_per_group = None
     num_rounds = 1
     endowment = 100
-    minsend = 0
+    minsend = 1
     maxsend = 100
 
 
@@ -23,28 +24,27 @@ class Subsession(BaseSubsession):
     pass
 
 
-
-
-
 class Group(BaseGroup):
-    dictator_decision = models.CurrencyField(min=Constants.minsend,
+    sender_decision = models.CurrencyField(min=Constants.minsend,
                                              max=Constants.maxsend,
                                              verbose_name="How much money would you like to give?",
-                                             doc="dictator's decision"
+                                             doc="sender's decision"
                                              )
-
+    receiver_decision = models.BooleanField(widget=widgets.RadioSelectHorizontal)
     def set_payoffs(self):
-        dictator = self.get_player_by_role(
-            'dictator')  # get_player_by_role() function in group needs role function of Player class
+        sender = self.get_player_by_role('sender')
         receiver = self.get_player_by_role('receiver')
-        dictator.payoff = Constants.endowment - self.dictator_decision
-        receiver.payoff = self.dictator_decision
+        if self.receiver_decision:
+            sender.payoff = Constants.endowment - self.sender_decision
+            receiver.payoff = self.sender_decision
+        else:
+            sender.payoff = 0
+            receiver.payoff = 0
 
 
 class Player(BasePlayer):
-    gender = models.IntegerField(choices=((0,'Female'),(1, 'Male'),(2, 'just awesome')),widget=widgets.RadioSelectHorizontal,)
     def role(self):
         if self.id_in_group == 1:  # otree function
-            return 'dictator'
+            return 'sender'
         else:
             return 'receiver'

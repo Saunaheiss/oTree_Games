@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Decision Receiver
+{% endblock %}
+
+{% block content %}
+    <div class="alert alert-primary" role="alert">
+        You are {{player.role}} and got {{group.sender_decision}}
+    </div>
+      <div>
+        <li>{% formfield group.receiver_decision %}</li>
+    </div>
+    {% next_button %}
+
+{% endblock %}

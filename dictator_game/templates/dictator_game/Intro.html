@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Dictato's game: Instructions
+    Dictator's game: Instructions
 {% endblock %}
 
 {% block content %}
@@ -10,6 +10,7 @@
         <ul>
             <li> You and another particpant are matched together. </li>
             <li> blabla </li>
+            <li>{%formfield player.gender%}</li>
         </ul>
     </div>
     {% next_button %}
