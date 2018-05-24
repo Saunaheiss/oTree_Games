@@ -11,10 +11,11 @@
         <img src ="{% static image1 %}" width="300"/>
         <img src ="{% static image2 %}" width="300"/>
     </div>
-    <div>
-        Where would you donate more money? {% formfield player.charity %}
-    </div>
+
     <div>You have an amount of total : {{player.endowment}}</div>
-        {% next_button %}
+    <div>
+        How much do you want to donate to charity A: {% formfield player.donationA %} and to charity B: {% formfield player.donationB %}
+    </div>
+{% next_button %}
 
 {% endblock %}

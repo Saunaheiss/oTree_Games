@@ -36,6 +36,7 @@ class Player(BasePlayer):
     generalA = models.BooleanField()
     generalB = models.BooleanField()
     endowment = models.IntegerField()
-    charity = models.StringField( widget=widgets.RadioSelectHorizontal,choices =["Charity A", "Charity B"])
-    views = models.IntegerField(choices= list(range(11)), widget=widgets.RadioSelectHorizontal)
+    donationA = models.IntegerField()
+    donationB = models.IntegerField()
+
 

@@ -21,7 +21,7 @@ class Results(Page):
 class Decision(Page):
     form_model = 'player'
     # form_fields = ['polopinion', 'views']
-    form_fields = ['charity', 'endowment']
+    form_fields = ['donationA', 'donationB']
 
     # def polopinion_choices(self): #polopinion is taken from form_fields. oTree is that clever
     #     #rand = random.choice([False, True])
@@ -59,7 +59,15 @@ class Decision(Page):
 
         return {'image1': image1,
                 'image2': image2}
+    def donationA_max(self):
+        return self.player.endowment
+    def donationB_max(self):
+        return self.player.endowment
 
+    def error_message(self, values):
+        print('vales is', values)
+        if values['donationA'] + values['donationB'] != self.player.endowment:
+            return 'The numbers must add up to {}'.format(self.player.endowment)
 
 page_sequence = [
     Decision,

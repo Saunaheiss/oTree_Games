@@ -13,7 +13,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'charity_game'
+    name_in_url = 'political opinion'
     players_per_group = None
     num_rounds = 1
 
