@@ -2,14 +2,15 @@
 {% load otree static %}
 
 {% block title %}
-    Results
+Results
 {% endblock %}
 
 {% block content %}
-    <div>You are {{player.role}} </div>
-    <div>{{sender_payoff}}</div>
-    <div>{{receiver_payoff}}</div>
-    {% next_button %}
+{% include 'ultimatum_game/Instruction_Block.html' %}
+<div>You are {{player.role}}</div>
+<div>Sender gets {{sender_payoff}}</div>
+<div>Receiver gets {{receiver_payoff}}</div>
+{% next_button %}
 {% endblock %}
 
 

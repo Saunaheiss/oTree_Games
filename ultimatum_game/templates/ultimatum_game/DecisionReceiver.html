@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+    {% include 'ultimatum_game/Instruction_Block.html' %}
     <div class="alert alert-primary" role="alert">
         You are {{player.role}} and got {{group.sender_decision}}
     </div>

@@ -6,6 +6,8 @@
 {% endblock %}
 
 {% block content %}
+{% include "ultimatum_game/whatever.html" %}
+    <div> Calculate 10 + 22: {% formfield player.control_question1 %}</div>
     <div>You are {{player.role}} </div>
     {% next_button %}
 

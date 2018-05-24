@@ -43,6 +43,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    control_question1 = models.IntegerField()
     def role(self):
         if self.id_in_group == 1:  # otree function
             return 'sender'

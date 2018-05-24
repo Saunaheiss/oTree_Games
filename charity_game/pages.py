@@ -22,6 +22,11 @@ class Decision(Page):
     form_model = 'player'
     # form_fields = ['polopinion', 'views']
     form_fields = ['donationA', 'donationB']
+    timeout_seconds = 5
+    def before_next_page(self):
+        if self.timeout_happened:
+            self.player.donationA = random.randint(0, self.player.endowment)
+            self.player.donationB = self.player.endowment - self.player.donationA
 
     # def polopinion_choices(self): #polopinion is taken from form_fields. oTree is that clever
     #     #rand = random.choice([False, True])
