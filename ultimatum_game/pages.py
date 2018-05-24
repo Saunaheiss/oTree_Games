@@ -35,7 +35,12 @@ class ResultsWaitPage(WaitPage):
 
 
 class Results(Page):
-    pass
+    def vars_for_template(self):
+        sender = self.group.get_player_by_role('sender')
+        receiver = self.group.get_player_by_role('receiver')
+        return {'sender_payoff':sender.payoff,
+            'receiver_payoff':sender.payoff
+                }
 
 
 page_sequence = [

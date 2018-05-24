@@ -44,6 +44,18 @@ SESSION_CONFIGS = [
         'num_demo_participants': 2, #number of partcipants who participate in the specific day (time)
         'app_sequence': ['ultimatum_game'],
     },
+{
+        'name': 'charity_game',
+        'display_name': "Political Opinion Game",
+        'num_demo_participants': 1, #number of partcipants who participate in the specific day (time)
+        'app_sequence': ['charity_game'],
+    },
+{
+        'name': 'charity_game',
+        'display_name': "Charity Game",
+        'num_demo_participants': 1, #number of partcipants who participate in the specific day (time)
+        'app_sequence': ['charity_game'],
+    },
 ]
 
 

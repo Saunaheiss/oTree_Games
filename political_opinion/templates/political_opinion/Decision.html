@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    What is your political opinion?
+{% endblock %}
+
+{% block content %}
+    <!--<img src ="{% static 'charity_game/SVP.svg' %}" height="300"/>-->
+    <!--<img src ="{% static 'charity_game/Arbeit.jpg' %}" height="300"/>-->
+    <div>
+        <img src ="{% static image1 %}" width="300"/>
+        <img src ="{% static image2 %}" width="300"/>
+    </div>
+    <div>
+        Which party do you prefer? {% formfield player.polopinion %}
+    </div>
+    <div>
+        How do you position your political opinion (0 left, 10 right)?
+        {% formfield player.views %}
+    </div>
+        {% next_button %}
+
+{% endblock %}
