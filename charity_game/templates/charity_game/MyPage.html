@@ -7,6 +7,13 @@
 
 {% block content %}
 
+<table class = "table table-hover table-striped">
+    {% for company in companies %}
+    <tr>
+        <td>{{ company }}</td>
+    </tr>
+    {% endfor %}
+</table>
     {% next_button %}
 
 {% endblock %}

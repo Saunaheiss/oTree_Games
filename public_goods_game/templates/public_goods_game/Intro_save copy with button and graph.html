@@ -1,0 +1,39 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Intro - Public Goods Game, you are in round: {{ player.round_number }} out of {{Constants.num_rounds}}
+{% endblock %}
+
+{% block content %}
+<strong>Welcome to the public goods game.</strong>
+<div class="btn btn-lg btn-success">detection button</div>
+<div class="Marco">I am Parisien</div>
+<br>
+
+<div id="firstChart2" style=""min-width: 310px; height:400px;">
+
+</div>
+
+{% include "public_goods_game/explanation_text.html" %}
+{% next_button %}
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+    $(function () {
+        $('#firstChart2').highcharts({
+            series:{{series|json}}
+            });
+    });
+</script>
+
+<script>
+    $('div.btn').on('click', function() {
+    $('div.Marco').html('No, I am from Lausanne!!!');
+    })
+
+</script>
+{% endblock %}

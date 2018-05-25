@@ -56,6 +56,12 @@ SESSION_CONFIGS = [
         'num_demo_participants': 1, #number of partcipants who participate in the specific day (time)
         'app_sequence': ['charity_game'],
     },
+{
+        'name': 'public_goods_game',
+        'display_name': "Public Goods Game",
+        'num_demo_participants': 4, #number of partcipants who participate in the specific day (time)
+        'app_sequence': ['public_goods_game'],
+    },
 ]
 
 

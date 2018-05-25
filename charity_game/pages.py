@@ -5,7 +5,10 @@ import random
 
 
 class MyPage(Page):
-    pass
+    def vars_for_template(self):
+        companies = ['Apple', 'Microsoft', 'Google', 'Facebook']
+        return {'companies': companies}
+
 
 
 class ResultsWaitPage(WaitPage):
@@ -75,8 +78,8 @@ class Decision(Page):
             return 'The numbers must add up to {}'.format(self.player.endowment)
 
 page_sequence = [
-    Decision,
     MyPage,
+    Decision,
     ResultsWaitPage,
     Results
 ]

@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Intro - Public Goods Game, you are in round: {{ player.round_number }} out of {{Constants.num_rounds}}
+{% endblock %}
+
+{% block content %}
+<strong>Welcome to the public goods game.</strong>
+
+<br>
+
+
+{% include "public_goods_game/explanation_text.html" %}
+{% next_button %}
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
